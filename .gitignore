@@ -1,0 +1,11 @@
+# cypress tests output
+cypress/videos
+cypress/screenshots
+cypress/reports
+
+# IDE
+*.code-workspace
+.idea
+
+#ignore modules
+node_modules
