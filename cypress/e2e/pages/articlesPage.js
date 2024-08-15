@@ -1,5 +1,5 @@
 import BasePage from './basePage';
-import { articles, articlesFloatingBar } from './articlesPageSelectors';
+import { articlesListing, articlesFloatingBar, article } from './articlesPageSelectors';
 
 export class ArticlesPage extends BasePage {
 	constructor() {
@@ -11,17 +11,25 @@ export class ArticlesPage extends BasePage {
 	};
 
 	getArticleTitleSelector(id) {
-		return articles.ARTICLE_TITLE(id);
+		return articlesListing.ARTICLE_TITLE(id);
+	}
+
+	getArticleContent() {
+		return cy.get(article.ARTICLE_BODY);
+	}
+
+	clickSeeMoreButton(id) {
+		return cy.get(articlesListing.SEE_MORE_BUTTON(id)).click();
 	}
 
 	clickNextButton() {
 		return cy.get(articlesFloatingBar.NEXT_BUTTON).click();
 	}
 
-	getArticleByTitle = (id, title, maxRetries = 10) => {
+	getArticleByTitle = (id, title, maxRetries = 9) => {
 		cy.wrap(0).as('retryCount');
 
-		const attemptFind = () => {
+		let attemptFind = () => {
 			cy.get('@retryCount').then((retryCount) => {
 				if (retryCount >= maxRetries) {
 					cy.wrap().then(() => {

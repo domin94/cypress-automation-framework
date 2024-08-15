@@ -4,7 +4,6 @@ Cypress.Commands.add('apiGetArticleId', (title) => {
 		url: '/api/articles',
 	}).then((res) => {
 		let article = res.body.find((article) => article.title === title);
-		let articleId = article.id;
-		cy.wrap(articleId);
+		cy.wrap(article);
 	});
 });

@@ -1,7 +1,7 @@
 const dataTestId = (value) => `[data-testid="${value}"]`;
-const getArticleCardById = (id) => `[data-testid="article-${id}"]`;
-const getArticleTitleById = (id) => `[data-testid="article-${id}-title"]`;
-const getArticleBodyById = (id) => `[data-testid="article-${id}-body"]`;
+const getArticleTitleById = (id) => `[data-testid="article-${id}-title"] a`;
+const seeArticleById = (id) => `#seeArticle${id}`;
+
 
 export const articlesFloatingBar = {
 	FLOATING_BAR: '.navigation-bar',
@@ -9,11 +9,14 @@ export const articlesFloatingBar = {
 	NEXT_BUTTON: '#btnNext',
 	CURRENT_PAGE_NUMBER: dataTestId('current-page'),
 	TOTAL_PAGES_NUMBER: dataTestId('total-pages'),
-	SELECT_ITEMS: dataTestId('per-page-select'),
+	SELECT_ITEMS: dataTestId('per-page-select')
 };
 
-export const articles = {
-	ARTICLE_CARD: (id) => getArticleCardById(id),
+export const articlesListing = {
 	ARTICLE_TITLE: (id) => getArticleTitleById(id),
-	ARTICLE_BODY: (id) => getArticleBodyById(id),
+	SEE_MORE_BUTTON: (id) => seeArticleById(id)
+};
+
+export const article = {
+	ARTICLE_BODY: dataTestId('article-body'),
 };
