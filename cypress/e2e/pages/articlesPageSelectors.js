@@ -13,7 +13,7 @@ export const articlesFloatingBar = {
 }
 
 export const articles = {
-  ARTICLE_CARD: getArticleCardById(),
-    ARTICLE_TITLE: getArticleTitleById(),
-    ARTICLE_BODY: getArticleBodyById()
+  ARTICLE_CARD: (id) => getArticleCardById(id),
+    ARTICLE_TITLE: (id) => getArticleTitleById(id),
+    ARTICLE_BODY: (id) => getArticleBodyById(id)
 }
